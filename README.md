@@ -40,7 +40,7 @@
 
 10. [📝 Conclusion](#-conclusion)  
 
-11. [📝 Authors](#-authors) 
+11. [Authors](#-authors) 
 
 ## 💡 Introduction
 ### 📚 Relevance of the study
