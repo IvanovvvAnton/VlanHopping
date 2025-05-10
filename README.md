@@ -238,15 +238,15 @@ After the VLAN hopping attack is successfully implemented and the port configura
 
 ![image](https://github.com/user-attachments/assets/b28eeeb6-7941-448a-b5e0-c348bde495d7)
 
-Для дальнейшей реализации атаки нарушитель добавляет новый интерфейс VLAN на своем устройстве, используя команду 
+To further implement the attack, the intruder adds a new VLAN interface on his device using the command
 ```
 vconfig add eth1 50
 ```
-чтобы создать виртуальный интерфейс с идентификатором VLAN 50. Затем, с помощью команды 
+to create a virtual interface with the VLAN ID 50. Then, using the command
 ```
 ifconfig eth1.50 192.168.50.50 up
 ```
-он назначает этому интерфейсу IP-адрес, соответствующий сети VLAN 50. Таким образом, устройство нарушителя теперь имеет доступ к сегменту VLAN 50, что позволяет ему обмениваться данными с другими устройствами в этом VLAN и продолжать атаку, например, с использованием метода "человек посередине".
+it assigns to this interface an IP address corresponding to VLAN 50. Thus, the intruder's device now has access to the VLAN segment 50, which allows it to exchange data with other devices on this VLAN and continue the attack, for example, using the "man in the middle" method.
 
 ![image](https://github.com/user-attachments/assets/faf821dc-1735-43a0-96f9-4a72252c39f8)
 
