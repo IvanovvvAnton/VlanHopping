@@ -3,7 +3,7 @@
 # 📚 Table of contents
 
 - [💡 Introduction](#Introduction)
-  - [📚 Relevance of the study](#relevance-of-the-study)
+  - [📚 Relevance of the study](#📚-relevance-of-the-study)
   - [🔬 Object and subject of research](#Object-and-subject-of-research)
   - [🎯 Purpose and objectives of the work](#Purpose-and-objectives-of-the-work)
   - [🧠 Scientific novelty and practical significance](#Scientific-novelty-and-practical-significance)
