@@ -1,157 +1,49 @@
 # VlanHopping
 
+## 💡 Introduction
+### 📚 Relevance of the study
 
-# Table of contents
+In the context of the active introduction of virtualization technologies and increasing information security requirements, logical network segmentation methods are becoming particularly important. One of these technologies is VLAN (Virtual Local Area Network), a mechanism that allows you to logically divide devices connected to the same physical network into different virtual segments. This provides flexibility in network design, improves manageability, and enhances information security by isolating traffic.
 
-- ["Description of the project"](#Description-of-the-project)
-- ["Description of the attack"](#Description-of-the-attack)
-- -  ["The principle of operation of the ARP protocol"](#The-principle-of-operation-of-the-ARP-protocol)
-- -  ["Description"](#Description-of-the-attack)
-- ["Description of the implementation platform"](#Description-of-the-implementation-platform)
-- ["How to install PnetLab and add the ishare2 function"](#How-to-install-PnetLab-and-add-the-ishare2-function)
-- - ["MobaXterm"](#MobaXterm)
-- - ["Special command"](#In-the-command-line-of-the-Netlab-terminal-enter-the-command)
-- - ["Download configuration"](#To-download-the-configuration-of-a-specific-device-you-need-to-register-the-following-commands)
-- - ["Result"](#Next-go-to-the-laboratory-and-see-the-changes-in-the-equipment-selection-list-a-configuration-named-Huawei-will-be-available)
-- ["Creating a network lab"](#Creating-a-network-lab)
-- ["Router Setup"](#Router-Setup) 
-- - ["VLAN"](#VLAN-Creation)
-- - ["IP addresses"](#Assigning-IP-addresses-for-VLAN-data)
-- - ["DHCP Server"](#Configuring-a-DHCP-server-for-a-VLAN)
-- - ["NAT"](#Configuring-NAT-to-access-the-external-network)
-- ["Switch Setup"](#Switch-Setup)
-- - ["VLAN"](#Creating-a-VLAN)
-- - ["Ports"](#Assigning-trunk-and-access-ports)
-- ["Implementation of the attack"](#Implementation-of-the-attack)
-- ["Protection methods"](#Protection-methods)
-- ["Implementation of protection methods"](#Implementation-of-protection-methods)
-- ["Authors"](#Authors)
+However, despite its advantages, VLAN technology is subject to certain vulnerabilities that can be exploited by hackers to gain unauthorized access to information. One of these attacks is the VLAN hopping cyberattack, which allows an intruder to bypass segmentation restrictions and gain access to traffic transmitted on other VLANs. This threat is especially dangerous for corporate and government networks, where information security is of critical importance.
 
-# Description of the project
-Modern information technologies are subject to an increasing number of attacks that pose a threat to the loss of data integrity and confidentiality. The urgency of the problem of network attacks, such as ARP-spoofing, is becoming increasingly critical in the context of the widespread use of local networks in various spheres of life.
+With the increasing use of VLANs in organizations of various fields, there is also an increasing interest in studying the vulnerabilities associated with this technology. Investigating the mechanisms of a VLAN hopping attack and ways to prevent it is becoming an important step in ensuring the integrity and confidentiality of network communications.
 
-ARP-spoofing is a form of attack based on changing the ARP protocol, which is responsible for matching logical IP addresses and physical MAC addresses of devices. During the attack, the attacker sends false ARP requests and responses, spoofing MAC addresses. This allows it to fake and redirect network traffic, which can lead to serious consequences such as interception of information, its substitution or disruption of the normal functioning of the network.
+### 🔬 Object and subject of research
 
-The purpose of this scientific work is to study ARP-spoofing attack scenarios in virtual local area networks created using the PnetLAB platform. Taking into account the urgency of the problem and the severity of its consequences, the main focus is on developing effective methods of protection against ARP spoofing attacks. The results of this study can serve as a basis for the development of security strategies and ensure resilience to such threats in virtual local area networks.
+The object of the research is the technology of virtual local area networks (VLAN) used in corporate and educational local area networks.
 
-# Description of the attack
-## The principle of operation of the ARP protocol
-As you know, addressing on the Internet is a 32-bit sequence of 0 and 1, called IP addresses. But the direct communication between two devices on the network is carried out at the channel layer addresses (MAC addresses). So, to determine the correspondence between the logical address of the network layer (IP) and the physical address of the device (MAC), the ARP protocol (Address Resolution Protocol) is used
+The subject of the study is the implementation mechanisms of the VLAN hopping cyberattack, its impact on the security of the network infrastructure, as well as protection methods aimed at preventing such attacks.
 
-It performs the main functions: mapping IPv4 addresses and MAC address, as well as string a mapping table (arp table).
+### 🎯 Purpose and objectives of the work
 
-Here is an example of obtaining the physical address of a device using the ARP protocol, for a visual examination of vulnerabilities when using it. When it becomes necessary to create a connection between two network devices (PC-1 and PC-2), the device (PC-1) sends a packet with a broadcast address in order to find out the MAC address that belongs to a particular device (PC-2) and request to send a response. 
-                
-The receiving network device (PC-2), after accepting this packet, must compare the IP address with its own, and in case of a match, generate a response message, where its MAC address is indicated directly (the MAC address of the PC-2 device).
+The purpose of the study is to study the principles of implementing a VLAN hopping cyberattack, simulate this attack in a virtual laboratory, as well as analyze and implement measures to protect the network infrastructure from this threat.
 
-An example of such an interaction can be seen in the picture.
+To achieve this goal, it is necessary to solve the following tasks::
 
-![screen-gif](https://github.com/AntonAndAnna/Arp-spoofing/assets/103459290/67f715c8-8539-4b92-bc4e-978313fbe58d)
+1 To study the theoretical foundations of VLAN and DTP protocol operation.
 
-## Description  
-ARP-spoofing is a cyberattack based on the impact on the transmission of ARP frames. During the attack, the attacker scans the network and substitutes MAC addresses. This allows him to fake and redirect network traffic, which leads to serious consequences, such as interception of information, its substitution or disruption of the normal functioning of the network.
+2 To build a network topology in a Netlab virtual laboratory using Cisco, Mikrotik devices and computers with various operating systems.
 
-Due to the fact that the ARP request contains a broadcast MAC address, any device in the broadcast segment can receive such an ARP frame. 
-Therefore, an attack option arises – the implementation of a man-in-the-middle cyberattack by replacing the MAC address of the router port with the MAC address of the offending device in the ARP table of the victim's device.
+3 Implement a VLAN hopping cyberattack using specialized software.
 
-![screen-gif](https://github.com/AntonAndAnna/Arp-spoofing/assets/103459290/5c4cadbf-a2b7-4c7a-80d4-77ba2f0bd1bb)
+4 Analyze the results of the attack and identify vulnerable elements of the network infrastructure.
 
-Thus, all traffic coming from the user's device to the router will be redirected to the intruder's device, while unnoticed by the user himself.
+5 Investigate and implement practical protection measures against VLAN hopping.
 
-# Description of the implementation platform 
-The base of the PnetLAB platform will be used to build and implement an ARP spoofing attack. This platform provides opportunities for designing local area networks in online and offline modes, as well as building a network together in real time. When creating a project (online laboratory), the platform allows you to add devices from various manufacturers and configure them through the built-in console. In addition to the built-in console, there is an alternative to using third-party applications with a console, since it is possible to connect to each added device on the network using various protocols.
+6 Evaluate the effectiveness of the proposed measures in terms of improving network security.
 
-# How to install PnetLab and add the ishare2 function
-First you need to go to the official website in the Download tab (https://pnetlab.com/pages/download ) and download the file with the .ova extension, then use virtual platforms (VMware, VirtualBox, etc.) to upload this file to the platform. The VMware virtual platform was used in this project. As a result, we get:
+### 🧠 Scientific novelty and practical significance
 
-![photo_2024-04-05_15-54-34](https://github.com/AntonAndAnna/Arp-spoofing/assets/103459290/f6856b56-ed53-42a5-a43e-ca86e5763537)
+The scientific novelty of the research lies in the practical modeling of a VLAN hopping cyberattack in a controlled virtual environment using open software solutions and the subsequent analysis of the effectiveness of protection methods.
 
-Next, use the ip address that the virtual machine shows to go to the website (for example http://192.168.15.155 ). Select the Login by Online Mode tab, using Sign Up we will create an account (for this we will enter the username, e-mail, and password).
+The practical significance lies in the fact that the results can be applied in educational processes to train information security specialists, as well as used in real organizations to increase the resilience of network infrastructure to attacks of this kind.
 
-![image](https://github.com/AntonAndAnna/Arp-spoofing/assets/103459290/9306e494-27ce-489b-b3b7-2ef497f7e955)
+### 🛠️ The structure of the work
 
-Then you will be taken to a workspace where you can create projects, as well as view projects of other users.
+The work consists of an introduction, three sections, a conclusion, and appendices. The first section discusses the theoretical foundations of VLAN technology and the DTP protocol, as well as a description of the VLAN hopping cyberattack vector. The second section presents the construction of a laboratory stand and a step-by-step implementation of the attack using the Yersinia utility. The third section contains an analysis of the results and a description of the methods of protection against VLAN hopping. In conclusion, the results of the study are summarized and recommendations are formulated.
 
-![image](https://github.com/AntonAndAnna/Arp-spoofing/assets/103459290/745c6c5c-5f5e-4d03-b2d6-b2254974a2f5)
-
-The installation process can also be found on the official website (https://pnetlab.com/pages/documentation?slug=install-PNETlab ). 
-
-## Ishare2
-
-Initially, PnetLAB has a very limited number of devices to select and use, so it is necessary to download ishare2.
-
-### MobaXterm
-
-But for convenient editing and use of the Netlab console, we will make a remote connection via a third-party application. We used Mobaxterm (https://mobaxterm.mobatek.net/download.html)
-
-MobaXterm is a program designed for remote administration of computers and servers. The all-in-one network application for remote work gives you a lot of advantages, for example, when using SSH to connect to a remote server, a graphical SFTP browser automatically opens for direct editing of your remotely located files.
-
-To connect to Netlab, follow these steps.
-In the upper panel of the main window, select the “Session” item and in the window that appears:
-- Connection type: "SSH"
-- Remote host: The IP address that you received to access PnetLAB
-- Specify username: root 
-- Port: leave unchanged
-  
-![image](https://github.com/AntonAndAnna/Arp-spoofing/assets/103459290/2d674860-f94c-47ca-8e5e-d73307331812)
-
-This way we get remote access to the PnetLAB console
-
-Let's go back to setting up ishare2. Full instructions for downloading this extension are available at the link:
-https://github.com/ishare2-org/ishare2-cli?tab=readme-ov-file#quick-start-%F0%9F%9A%80
-
-After installing share 2, you can find and select the necessary hardware and download it as follows:
-### In the command line of the Netlab terminal, enter the command
-(for example, it will download the Huawei configuration)
-```
-root@pnetlab:~# ishare2 search huawei
-```
-![image](https://github.com/AntonAndAnna/Arp-spoofing/assets/103459290/2c26befc-bea0-45bc-b71e-8efdb6e858ac)
-
-After that, a list of available devices with the name Huawei will be displayed. 
-
-### To download the configuration of a specific device you need to register the following commands:
-(for example, Huawei configuration number 529 will be downloaded)
-```
-root@pnetlab:~# ishare2 pull qemu 529
-```
-![image](https://github.com/AntonAndAnna/Arp-spoofing/assets/103459290/ad1bf2e0-0cec-4612-aa4f-e1d10ab3b937)
-
-The download of the corresponding configuration will begin
-### After the download is finished a message will appear:
-
-![image](https://github.com/AntonAndAnna/Arp-spoofing/assets/103459290/70f2ac3e-2c80-4efc-9c63-53cfd31a246c)
-
-### Next go to the laboratory and see the changes in the equipment selection list a configuration named Huawei will be available. 
-
-Before:
-
-![image](https://github.com/AntonAndAnna/Arp-spoofing/assets/103459290/14c7fd2a-8087-4361-9a5d-afdf7bb8f9e6)
-
-After:
-
-![image](https://github.com/AntonAndAnna/Arp-spoofing/assets/103459290/34fe1616-430a-41e7-afdc-dc8dfbb08ef3)"
-
-There may also be a situation where when searching for a configuration via share 2, it will not be found. Therefore, there is a second way to add devices.
-
-First, you need to find the configuration by following the link: https://drive.labhub.eu.org
-
-After downloading the desired image, we need to upload it directly to Netlab. Let's also use Mobaxterm, When connecting to the console, we can see the file view on the left:
-
-![image](https://github.com/AntonAndAnna/Arp-spoofing/assets/103459290/520db192-a217-4ffe-b422-6f4a91d8c21d)
-
-It is necessary to follow the path:
-```
-/opt/unetlab/addons/qemu/
-```
-
-And then by clicking anywhere in the window with the right mouse button to open the window:
-
-![image](https://github.com/AntonAndAnna/Arp-spoofing/assets/103459290/a0a60412-5d3a-4f92-93ad-7ac2f5a98980)
-
-Using the "upload to current folder" item, we will upload the necessary configuration
-
-# Creating a network lab
+# 🖧 Creating a network lab
 The built virtual laboratory in Netlab will look like this:
 
 ![image](https://github.com/AntonAndAnna/Arp-spoofing/assets/103459290/9a2562e2-9a16-492f-b999-a2f9d84e88c0)
@@ -183,23 +75,24 @@ Next, by selecting Docker.io , select the image file as shown below:
 Next, we will configure the network equipment
 
 To set up a router on it, you need to create two VLANs, and configure automatic distribution of IP addresses for devices that will be located in these VLANs
-# Router Setup 
-## VLAN Creation
+
+# 🔧 Router Setup 
+## 🔄 VLAN Creation
 ```
-interface vlan add name=vlan110 vlan-id=110 interface=ether2
-interface vlan add name=vlan115 vlan-id=115 interface=ether2
+interface vlan add name=vlan50 vlan-id=50 interface=ether2
+interface vlan add name=vlan55 vlan-id=55 interface=ether2
 ```
-## Assigning IP addresses for VLAN data
+## 🔢 Assigning IP addresses for VLAN data
 ```
-ip address add address=192.168.110.1/24 network=192.168.110.0 interface=vlan110
-ip address add address=192.168.115.1/24 network=192.168.115.0 interface=vlan115
+ip address add address=192.168.50.1/24 network=192.168.50.0 interface=vlan50
+ip address add address=192.168.55.1/24 network=192.168.55.0 interface=vlan55
 ```
-## Configuring a DHCP server for a VLAN
+## 📡 Configuring a DHCP server for a VLAN
 ```
-dhcp server interface vlan 110 address space 192.168.110.0/24 gateway 192.168.110.1 addresses 192.168.110.2-192.168.110.15
-dhcp server interface vlan 115 address space 192.168.115.0/24 gateway 192.168.115.1 addresses 192.168.115.2-192.168.115.15
+dhcp server interface vlan 50 address space 192.168.50.0/24 gateway 192.168.50.1 addresses 192.168.50.2-192.168.50.100
+dhcp server interface vlan 55 address space 192.168.55.0/24 gateway 192.168.55.1 addresses 192.168.55.2-192.168.55.100
 ```
-## Configuring NAT to access the external network
+## 🔐 Configuring NAT to access the external network
 ```
 ip firewall nat add action=masquerade chain=srcnat out-interface=ether2 
 ```
@@ -207,33 +100,41 @@ As a result, we will get the configuration, in order to output it, you can use t
 ```
 / export compact
 ```
-![image](https://github.com/AntonAndAnna/Arp-spoofing/assets/103459290/5d7b1ffd-c9b7-4d09-b595-3b1bba4a9bb8)
+![image](https://github.com/user-attachments/assets/6012eedc-bf5c-406e-ad7b-f9922dc95bdd)
 
-# Switch Setup
+# 🔌 Switch Setup
 To do this, you need to switch to privileged mode with the commands
 ```
 >enable
 #configure terminal
 ```
-## Creating a VLAN
+## 🏷️ Creating a VLAN
 ```
-vlan 110
-name pc
-vlan 115
-name trunk
+vlan 50
+name work
+vlan 55
+name killer
 ```
-## Assigning trunk and access ports
+## 🔀 Assigning trunk and access ports
 ```
 interface e0/0
+switchport mode trunk
+switchport encapsulation dot1q
+```
+```
+interface e0/1
 switchport mode access
-switchport access vlan 110
+switchport access vlan 50
 ```
 ```
 interface e0/2
-switchport mode trunk
-switchport encapsulation dot1q
-switchport trunk native vlan 115
-switchport trunk allowed vlan 110
+switchport mode access
+switchport access vlan 50
+```
+```
+interface e0/3
+switchport mode access
+switchport access vlan 55
 ```
 Next, you need to save the configuration using the command
 ```
@@ -244,9 +145,9 @@ And to output the configuration, use the command
 show run
 ```
 
-![image](https://github.com/AntonAndAnna/Arp-spoofing/assets/103459290/2e5ac7cb-765e-4f19-9fee-5d273c9000d4)
+![image](https://github.com/user-attachments/assets/7a52f45e-8f3c-41ed-b247-e3cd29d95044)
 
-# Implementation of the attack
+# 💻 Implementation of the attack
 
 First, let's check the receipt of IP addresses by devices, for this we will prescribe
 ```
@@ -254,92 +155,141 @@ ifconfig
 ```
 And we'll see
 
-![image](https://github.com/AntonAndAnna/Arp-spoofing/assets/103459290/2cc87e14-8910-42ac-8e5e-8c79be2c14d1)
-![image](https://github.com/AntonAndAnna/Arp-spoofing/assets/103459290/2c76c7bd-9b2f-408b-9fc7-f9c9212c20b2)
+![image](https://github.com/user-attachments/assets/87d3a9ba-cd40-446b-8c95-08c77d72a8a9)
+![image](https://github.com/user-attachments/assets/1ff076e5-b8f0-43c0-a12a-e93a3d3ec6b1)
 
 The IP addresses have been successfully received.
 
-Now download the ARP-SCAN tool on Ubuntu, for this you need:
+Then use 
 ```
-sudo su apt install arp-scan
+show vlan brief
+```
+And see:
+
+![image](https://github.com/user-attachments/assets/e2a11b57-bec9-49c7-92db-833948b89bd7)
+
+### 🔍 Checking the status of the switch port status
+
+To successfully implement a VLAN hopping cyberattack, it is important to determine the current status of the switch port to which the potential intruder's device is connected. In particular, it is necessary to check whether this port is in a mode that allows the automatic installation of a trunk connection, which can be used for embedding into other VLANs.
+
+In Cisco technology, switches use the DTP (Dynamic Trunking Protocol) protocol to automatically negotiate the port mode. The port can be in one of the following modes:
+
+- The access port belongs to only one VLAN and does not allow traffic from other VLANs to pass through;
+
+- The trunk port transmits traffic from several VLANs at once, identifying them using tags;
+
+- Dynamic desirable — the port is actively trying to establish a trunk connection if another port that supports DTP is connected to it;
+
+- Dynamic auto — the port passively waits for an offer to install a trunk from the opposite device.
+
+To determine the current mode, use the command (on Cisco IOS hardware):
+
+```
+show interfaces e0/3 switchport
 ```
 
-After successful download, enter the command
+Output example:
+
+![image](https://github.com/user-attachments/assets/048b3b97-d726-4401-844f-ebf9f691e820)
+
+To debug and view incoming RTP packets on a Cisco switch, you can use the debug rtp packet command. This command allows you to display detailed information about the process of exchanging DTP messages between the switch and the devices connected to the ports. By enabling debugging, the administrator can track which DTP packets are received on the ports and at what point their mode changes, which is useful for detecting VLAN hopping attack attempts.
+
+![image](https://github.com/user-attachments/assets/481e0829-e7a2-4bd3-b52e-6554da7cf0e5)
+
+## 💥 Attack
+
+To implement a VLAN hopping attack using the Yersinia utility in graphical mode, several steps must be followed. Yersinia is a powerful utility for testing and exploiting vulnerabilities in network protocols, which provides a user—friendly interface for dealing with various types of attacks, including vulnerabilities in the DTP (Dynamic Trunking Protocol) protocol.
+
+### ⚡Step 1: Install Yersinia
+
+To install Yersinia on a Linux system, run the following commands:
 ```
-sudo arp-scan --interface=ether1 --localnet
-```
-
-Will see:
-
-![image](https://github.com/AntonAndAnna/Arp-spoofing/assets/103459290/dfe60790-3baa-408f-ad99-4904ad632f9b)
-
-Next, let's look at the ARP table on the victim's computer:
-
-![image](https://github.com/AntonAndAnna/Arp-spoofing/assets/103459290/29115455-1cf4-45b7-91db-0c07ee2b563b)
-
-The attack itself will be implemented using the arpspoof tool, in order to see how it is set, you can write:
-
-![image](https://github.com/AntonAndAnna/Arp-spoofing/assets/103459290/077458d5-b178-4e53-93bb-8d574b34b0b0)
-
-The next step will be to start the spoofing itself, for this we will prescribe
-```
-arpspoof -i eth1 -t 192.168.50.4 192.168.50.1
+sudo apt update
+sudo apt install yersinia
 ```
 
-![image](https://github.com/AntonAndAnna/Arp-spoofing/assets/103459290/c58677a1-e490-4b6a-85c5-bcf2f08f5970)
+### 🔓 Step 2: Launch Yersinia in Graphical mode
 
-We see that the attack was successful
+After installing Yersinia, you can run it in the graphical interface, which greatly facilitates the process of configuring and monitoring the attack. To do this, run the following command:
 
-Now let's check the ARP table on the victim's computer and see that the MAC addresses match. Thus, it can be concluded that the router's MAC address was successfully replaced with the physical address of the intruder's device. The Wireshark program was used to check traffic redirection:
-
-![image](https://github.com/AntonAndAnna/Arp-spoofing/assets/103459290/f5d77446-a35b-4b71-b22c-b575ed6bc895)
-
-The figure shows that traffic coming from the Ubuntu_victim device (IP address 192.168.50.4/24) is redirected to a device with a MAC address 50:00:00:37:00:01, which corresponds to the offending Ubuntu device.
-
-# Protection methods
-There are several possible ways to protect against ARP-spoofing attacks:
-1. Static ARP tables (You can statically assign all MAC addresses on the network to the corresponding IP addresses. This is very effective in preventing ARP poisoning, but requires a lot of work). 
-2. Switch protection. Most managed switches are equipped with the functions of preventing cyber attacks ARP-spoofing, Dynamic ARP Inspection (DAI) - will be described further.
-3. Physical protection (Proper control of physical access to the user's workplace, as well as control of unauthorized access to equipment, will also help prevent ARP-spoofing attacks).
-4. Network isolation (It is necessary to segment the network, you can concentrate the most important resources in a specially allocated segment with stricter protection systems).
-
-# Implementation of protection methods
-Protection methods such as DHCP Snooping and DAI have been configured. 
-
-DHCP Snooping protects your network from spoofing the DHCP server. Trusted ports are manually configured on the switches, and we will also set the specified number of packets that can pass through this port:
 ```
+sudo -E yersinia -G
+```
+
+The team runs Yersinia with a graphical interface, allowing you to use a user-friendly GUI to set up attacks. The -E option launches the utility with superuser rights, and -G indicates launch in graphical mode.
+
+After executing this command, the Yersinia graphical window opens, in which you can configure the attack, select the target network protocol and start exploiting vulnerabilities.
+
+### ⚙️ Step 3: Choosing an attack on the DTP protocol
+
+![image](https://github.com/user-attachments/assets/2a9fac62-90b8-45dd-ad9f-980ad2981af5)
+
+### 🏁 Step 4: We launch the attack and see that it was successful
+
+![image](https://github.com/user-attachments/assets/20a2594d-d6d7-42d7-9c5d-8d6ec90547d8)
+
+When the VLAN hopping attack is successfully implemented using the Yersinia utility, the Cisco switch can detect a port configuration change and issue appropriate alerts about events. This is because the attack involves changing the status of the port, which can lead to the opening of a communication channel between different VLANs. Cisco switches use various mechanisms to monitor and respond to network anomalies, such as port configuration changes.
+
+![image](https://github.com/user-attachments/assets/e007b030-4b50-4f0e-be7f-d27640a36550)
+
+After the VLAN hopping attack is successfully implemented and the port configuration is changed, the device that was originally in VLAN 55 is no longer displayed in the corresponding table. This may mean that the attacker was able to redirect traffic or connect to another VLAN, thus "removing" the device from VLAN 55. As a result, the VLAN table shows that there are no devices in this segment, although it was previously registered, which confirms successful intervention and manipulation of network settings.
+
+![image](https://github.com/user-attachments/assets/d7902f7f-8f8e-4920-88e2-8016e8029470)
+
+![image](https://github.com/user-attachments/assets/b28eeeb6-7941-448a-b5e0-c348bde495d7)
+
+Для дальнейшей реализации атаки нарушитель добавляет новый интерфейс VLAN на своем устройстве, используя команду 
+```
+vconfig add eth1 50
+```
+чтобы создать виртуальный интерфейс с идентификатором VLAN 50. Затем, с помощью команды 
+```
+ifconfig eth1.50 192.168.50.50 up
+```
+он назначает этому интерфейсу IP-адрес, соответствующий сети VLAN 50. Таким образом, устройство нарушителя теперь имеет доступ к сегменту VLAN 50, что позволяет ему обмениваться данными с другими устройствами в этом VLAN и продолжать атаку, например, с использованием метода "человек посередине".
+
+![image](https://github.com/user-attachments/assets/faf821dc-1735-43a0-96f9-4a72252c39f8)
+
+Check:
+
+![image](https://github.com/user-attachments/assets/c4c194ad-8c8d-4793-893a-97aa1f97392a)
+
+After adding the VLAN 50 interface and assigning the appropriate IP address, the intruder's device successfully jumps to another VLAN, in this case VLAN 50. This allows him to bypass network segmentation restrictions and gain access to resources located on this VLAN, including devices such as Ubuntu_work. Thus, the intruder can continue his actions, including intercepting traffic and interfering with network interactions between segments.
+
+![image](https://github.com/user-attachments/assets/f68cd290-d23a-4975-a59b-840a9533541c)
+
+## 🛡️ Protection methods
+
+1 To protect against VLAN hopping attacks related to DTP protocol vulnerabilities, an important step is to disable this protocol on switch ports that should not be involved in automatic trunk configuration. To do this, use the switchport nonegotiate command.
+
+The switchport nonegotiate command disables the ability to automatically negotiate tanks with another device, which prevents the use of the DTP protocol to dynamically configure a trunk connection. As a result, the port will not attempt to establish a trunk connection with another device, even if it supports DTP. This significantly reduces the likelihood that an attacker will be able to exploit the DTP vulnerability to bypass segmentation and switch to other VLANs.
+
+To apply this command, follow these steps on the switch:
+```
+configure terminal
 interface e0/0
-ip dhcp snooping trust
-ip dhcp snooping limit rate 100
+switchport nonegotiate
 ```
 
-As a result, we get:
+![image](https://github.com/user-attachments/assets/050ef230-4387-4f22-b182-a8b00c6391ac)
 
-![image](https://github.com/AntonAndAnna/Arp-spoofing/assets/103459290/a872f34c-a79c-4ba4-ae40-b6c0d03c9a8c)
+2 VLAN 1 is a standard VLAN that is used by default on most network devices, such as Cisco switches, for various network functions, including management and data exchange protocols. This VLAN often remains active on all switch ports, which makes it vulnerable to attacks, as attackers may try to use it to bypass network segmentation.
 
-Now let's turn on DHCP Snooping for this we will prescribe:
-```
-ip dhcp snooping trust
-ip dhcp snooping vlan 110, 115
-```
+3 All unused ports should be moved to a separate dedicated VLAN. Unused ports on the switch left in standard VLANs can be used by intruders to gain unauthorized access to the network. To minimize this risk, inactive ports should be moved to an isolated, dedicated VLAN, such as VLAN 999 or another specifically designated for unused ports.
 
-As a result, we get:
+![image](https://github.com/user-attachments/assets/9110e48c-91d2-4f2d-9a07-b1bc59c7b43e)
 
-![image](https://github.com/AntonAndAnna/Arp-spoofing/assets/103459290/d95a521c-8f66-4913-8c17-492cc452ecaa)
+4 To increase network security, it is recommended to disable all unused ports on the switch to prevent intruders from using them to connect unauthorized devices. Disabling inactive ports helps reduce potential attack vectors, such as attacks using unregistered devices.
 
-We will also set up DAI, for this we will prescribe:
-```
-ip arp inspection vlan 110, 115
-```
+![image](https://github.com/user-attachments/assets/28714742-88ea-46bf-ab0e-c20d496a9ab3)
 
-We will also assign this function to the ports using the command:
-```
-ip arp inspection trust
-```
+## 📝 Conclusion
 
-As a result, after re-implementing the attack, you can see that the MAC addresses in the ARP table do not change, and the switch recognizes the cyberattack, which indicates the successful implementation of protection methods
+During the research and implementation of the VLAN hopping cyberattack, it was demonstrated how vulnerabilities in VLAN technology, in particular the DTP protocol, can be used to bypass network segmentation and gain access to data from other VLANs. We have shown how an attacker, using a vulnerability in the DTP protocol, can gain the ability to transfer traffic between network segments, leading to risks of data interception and possible man-in-the-middle attacks.
 
-![image](https://github.com/AntonAndAnna/Arp-spoofing/assets/103459290/41a19b4b-1b0a-4da7-a7d7-a85143f49286)
+To prevent such attacks, several effective protection methods were considered, including disabling the DTP protocol, not using VLAN 1, and transferring all unused ports to isolated VLANs with their subsequent disconnection. All these measures are aimed at improving network security, reducing possible vulnerability points and improving access control to various network segments.
+
+Thus, to effectively protect against VLAN hopping cyber attacks and other threats related to incorrect VLAN configuration, it is necessary to apply an integrated approach, including regular checking and updating of network equipment configuration, the use of modern monitoring tools and protection against unauthorized access. The implementation of the proposed protection methods significantly increases the level of security and resilience of the network infrastructure to potential threats.
 
 # Authors
 If you have any questions, you can ask them to us by writing to us at email:
