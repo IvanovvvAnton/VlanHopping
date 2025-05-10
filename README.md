@@ -9,7 +9,7 @@
 - - ["🧠Scientific novelty and practical significance"](#Scientific-novelty-and-practical-significance)
 - ["🛠️ The structure of the work"](#The-structure-of-the-work)
 - -  ["🛠️How to install PnetLab and add the ishare2 function"](#🛠️How-to-install-PnetLab-and-add-the-ishare2-function)
-- ["⚙️ Ishare2"](#Ishare2)
+- ["⚙️ Ishare2"](#⚙️-Ishare2)
 - - ["🖥️ MobaXterm"](#MobaXterm)
 - - ["💡 Special command"](#In-the-command-line-of-the-Netlab-terminal-enter-the-command)
 - - ["🔽 Download configuration"](#To-download-the-configuration-of-a-specific-device-you-need-to-register-the-following-commands)
