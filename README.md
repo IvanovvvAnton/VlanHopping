@@ -1,4 +1,37 @@
-# VlanHopping
+# 🌐🔄 VlanHopping
+
+# 📚 Table of contents
+
+- ["💡Introduction"](#Introduction)
+- - ["📚Relevance of the study"](#Relevance-of-the-study)
+- - ["🔬Object and subject of research"](#Object-and-subject-of-research)
+- - ["🎯Purpose and objectives of the work"](#Purpose-and-objectives-of-the-work) 
+- - ["🧠Scientific novelty and practical significance"](#Scientific-novelty-and-practical-significance)
+- ["🛠️ The structure of the work"](#The-structure-of-the-work)
+- -  ["🛠️How to install PnetLab and add the ishare2 function"](#🛠️How-to-install-PnetLab-and-add-the-ishare2-function)
+- ["⚙️ Ishare2"](#Ishare2)
+- - ["🖥️ MobaXterm"](#MobaXterm)
+- - ["💡 Special command"](#In-the-command-line-of-the-Netlab-terminal-enter-the-command)
+- - ["🔽 Download configuration"](#To-download-the-configuration-of-a-specific-device-you-need-to-register-the-following-commands)
+- ["🖧 Creating a network lab"](#Creating-a-network-lab)
+- ["🔧 Router Setup"](#Router-Setup) 
+- - ["🔄 VLAN"](#VLAN-Creation)
+- - ["🔢 IP addresses"](#Assigning-IP-addresses-for-VLAN-data)
+- - ["📡 DHCP Server"](#Configuring-a-DHCP-server-for-a-VLAN)
+- - ["🔐 NAT"](#Configuring-NAT-to-access-the-external-network)
+- ["🔌 Switch Setup"](#Switch-Setup)
+- - ["🏷️ VLAN"](#Creating-a-VLAN)
+- - ["🔀 Ports"](#Assigning-trunk-and-access-ports)
+- ["💻 Implementation of the attack"](#Implementation-of-the-attack)
+- - ["🔍 Checking the status"](#Checking-the-status-of-the-switch-port-status)
+- ["💥 Attack"](#Attacks)
+- - ["⚡Step 1"](#Step-1:-Install-Yersinia)
+- - ["🔓 Step 2"](#Step-2:-Launch-Yersinia-in-Graphical-mode)
+- - ["⚙️ Step 3"](#Step-3:-Choosing-an-attack-on-the-DTP-protocol)
+- - ["🏁 Step 4"](#Step-4:-We-launch-the-attack-and-see-that-it-was-successful)
+- ["🛡️ Protection methods"](#Protection-methods)
+- ["📝 Conclusion"](#Conclusion)
+- ["Authors"](#Authors)
 
 ## 💡 Introduction
 ### 📚 Relevance of the study
