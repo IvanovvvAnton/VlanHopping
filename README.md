@@ -2,36 +2,43 @@
 
 # 📚 Table of contents
 
-- [💡 Introduction](#Introduction)
-  - [📚 Relevance of the study](#relevance-of-the-study)
-  - [🔬 Object and subject of research](#Object-and-subject-of-research)
-  - [🎯 Purpose and objectives of the work](#Purpose-and-objectives-of-the-work)
-  - [🧠 Scientific novelty and practical significance](#Scientific-novelty-and-practical-significance)
-- [🛠️ The structure of the work](#The-structure-of-the-work)
-  - [🛠️ How to install PnetLab and add the ishare2 function](#How-to-install-PnetLab-and-add-the-ishare2-function)
-- [⚙️ Ishare2](#Ishare2)
-  - [🖥️ MobaXterm](#MobaXterm)
-  - [💡 Special command](#In-the-command-line-of-the-Netlab-terminal-enter-the-command)
-  - [🔽 Download configuration](#To-download-the-configuration-of-a-specific-device-you-need-to-register-the-following-commands)
-- [🖧 Creating a network lab](#Creating-a-network-lab)
-- [🔧 Router Setup](#Router-Setup)
-  - [🔄 VLAN](#VLAN-Creation)
-  - [🔢 IP addresses](#Assigning-IP-addresses-for-VLAN-data)
-  - [📡 DHCP Server](#Configuring-a-DHCP-server-for-a-VLAN)
-  - [🔐 NAT](#Configuring-NAT-to-access-the-external-network)
-- [🔌 Switch Setup](#Switch-Setup)
-  - [🏷️ VLAN](#Creating-a-VLAN)
-  - [🔀 Ports](#Assigning-trunk-and-access-ports)
-- [💻 Implementation of the attack](#Implementation-of-the-attack)
-  - [🔍 Checking the status](#Checking-the-status-of-the-switch-port-status)
-- [💥 Attack](#Attacks)
-  - [⚡ Step 1](#Step-1:-Install-Yersinia)
-  - [🔓 Step 2](#Step-2:-Launch-Yersinia-in-Graphical-mode)
-  - [⚙️ Step 3](#Step-3:-Choosing-an-attack-on-the-DTP-protocol)
-  - [🏁 Step 4](#Step-4:-We-launch-the-attack-and-see-that-it-was-successful)
-- [🛡️ Protection methods](#Protection-methods)
-- [📝 Conclusion](#Conclusion)
-- [Authors](#Authors)
+## 📋 Table of Contents  
+1. [💡 Introduction](#-introduction)  
+   - [📚 Relevance of the study](#-relevance-of-the-study)  
+   - [🔬 Object and subject of research](#-object-and-subject-of-research)  
+   - [🎯 Purpose and objectives of the work](#-purpose-and-objectives-of-the-work)  
+   - [🧠 Scientific novelty and practical significance](#-scientific-novelty-and-practical-significance)  
+
+2. [🛠️ The structure of the work](#-the-structure-of-the-work)  
+
+3. [🛠️ How to install PnetLab and add the ishare2 function](#-how-to-install-pnetlab-and-add-the-ishare2-function)  
+
+4. [⚙️ Ishare2](#-ishare2)  
+   - [🖥️ MobaXterm](#-mobaxterm)  
+
+5. [🖧 Creating a network lab](#-creating-a-network-lab)  
+
+6. [🔧 Router Setup](#-router-setup)  
+   - [🔄 VLAN Creation](#-vlan-creation)  
+   - [🔢 Assigning IP addresses for VLAN data](#-assigning-ip-addresses-for-vlan-data)  
+   - [📡 Configuring a DHCP server for a VLAN](#-configuring-a-dhcp-server-for-a-vlan)  
+   - [🔐 Configuring NAT to access the external network](#-configuring-nat-to-access-the-external-network)  
+
+7. [🔌 Switch Setup](#-switch-setup)  
+   - [🏷️ Creating a VLAN](#-creating-a-vlan)  
+   - [🔀 Assigning trunk and access ports](#-assigning-trunk-and-access-ports)  
+
+8. [💻 Implementation of the attack](#-implementation-of-the-attack)  
+   - [🔍 Checking the status of the switch port status](#-checking-the-status-of-the-switch-port-status)  
+   - [💥 Attack](#-attack)  
+     - [⚡ Step 1: Install Yersinia](#-step-1-install-yersinia)  
+     - [🔓 Step 2: Launch Yersinia in Graphical mode](#-step-2-launch-yersinia-in-graphical-mode)  
+     - [⚙️ Step 3: Choosing an attack on the DTP protocol](#-step-3-choosing-an-attack-on-the-dtp-protocol)  
+     - [🏁 Step 4: Launch the attack and verify success](#-step-4-launch-the-attack-and-verify-success)  
+
+9. [🛡️ Protection methods](#-protection-methods)  
+
+10. [📝 Conclusion](#-conclusion)  
 
 
 ## 💡 Introduction
