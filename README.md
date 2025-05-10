@@ -39,9 +39,104 @@ The scientific novelty of the research lies in the practical modeling of a VLAN 
 
 The practical significance lies in the fact that the results can be applied in educational processes to train information security specialists, as well as used in real organizations to increase the resilience of network infrastructure to attacks of this kind.
 
-### 🛠️ The structure of the work
+## 🛠️ The structure of the work
 
 The work consists of an introduction, three sections, a conclusion, and appendices. The first section discusses the theoretical foundations of VLAN technology and the DTP protocol, as well as a description of the VLAN hopping cyberattack vector. The second section presents the construction of a laboratory stand and a step-by-step implementation of the attack using the Yersinia utility. The third section contains an analysis of the results and a description of the methods of protection against VLAN hopping. In conclusion, the results of the study are summarized and recommendations are formulated.
+
+### 🛠️How to install PnetLab and add the ishare2 function
+First you need to go to the official website in the Download tab (https://pnetlab.com/pages/download ) and download the file with the .ova extension, then use virtual platforms (VMware, VirtualBox, etc.) to upload this file to the platform. The VMware virtual platform was used in this project. As a result, we get:
+
+![photo_2024-04-05_15-54-34](https://github.com/AntonAndAnna/Arp-spoofing/assets/103459290/f6856b56-ed53-42a5-a43e-ca86e5763537)
+
+Next, use the ip address that the virtual machine shows to go to the website (for example http://192.168.15.155 ). Select the Login by Online Mode tab, using Sign Up we will create an account (for this we will enter the username, e-mail, and password).
+
+![image](https://github.com/AntonAndAnna/Arp-spoofing/assets/103459290/9306e494-27ce-489b-b3b7-2ef497f7e955)
+
+Then you will be taken to a workspace where you can create projects, as well as view projects of other users.
+
+![image](https://github.com/AntonAndAnna/Arp-spoofing/assets/103459290/745c6c5c-5f5e-4d03-b2d6-b2254974a2f5)
+
+The installation process can also be found on the official website (https://pnetlab.com/pages/documentation?slug=install-PNETlab ). 
+
+## ⚙️ Ishare2
+
+Initially, PnetLAB has a very limited number of devices to select and use, so it is necessary to download ishare2.
+
+### 🖥️ MobaXterm
+
+But for convenient editing and use of the Netlab console, we will make a remote connection via a third-party application. We used Mobaxterm (https://mobaxterm.mobatek.net/download.html)
+
+MobaXterm is a program designed for remote administration of computers and servers. The all-in-one network application for remote work gives you a lot of advantages, for example, when using SSH to connect to a remote server, a graphical SFTP browser automatically opens for direct editing of your remotely located files.
+
+To connect to Netlab, follow these steps.
+In the upper panel of the main window, select the “Session” item and in the window that appears:
+- Connection type: "SSH"
+- Remote host: The IP address that you received to access PnetLAB
+- Specify username: root 
+- Port: leave unchanged
+  
+![image](https://github.com/AntonAndAnna/Arp-spoofing/assets/103459290/2d674860-f94c-47ca-8e5e-d73307331812)
+
+This way we get remote access to the PnetLAB console
+
+Let's go back to setting up ishare2. Full instructions for downloading this extension are available at the link:
+https://github.com/ishare2-org/ishare2-cli?tab=readme-ov-file#quick-start-%F0%9F%9A%80
+
+After installing share 2, you can find and select the necessary hardware and download it as follows:
+
+### 💡 In the command line of the Netlab terminal, enter the command
+
+(for example, it will download the Huawei configuration)
+```
+root@pnetlab:~# ishare2 search huawei
+```
+![image](https://github.com/AntonAndAnna/Arp-spoofing/assets/103459290/2c26befc-bea0-45bc-b71e-8efdb6e858ac)
+
+After that, a list of available devices with the name Huawei will be displayed. 
+
+### 🔽 To download the configuration of a specific device you need to register the following commands:
+
+(for example, Huawei configuration number 529 will be downloaded)
+```
+root@pnetlab:~# ishare2 pull qemu 529
+```
+![image](https://github.com/AntonAndAnna/Arp-spoofing/assets/103459290/ad1bf2e0-0cec-4612-aa4f-e1d10ab3b937)
+
+The download of the corresponding configuration will begin
+
+After the download is finished a message will appear:
+
+![image](https://github.com/AntonAndAnna/Arp-spoofing/assets/103459290/70f2ac3e-2c80-4efc-9c63-53cfd31a246c)
+
+Next go to the laboratory and see the changes in the equipment selection list a configuration named Huawei will be available. 
+
+Before:
+
+![image](https://github.com/AntonAndAnna/Arp-spoofing/assets/103459290/14c7fd2a-8087-4361-9a5d-afdf7bb8f9e6)
+
+After:
+
+![image](https://github.com/AntonAndAnna/Arp-spoofing/assets/103459290/34fe1616-430a-41e7-afdc-dc8dfbb08ef3)"
+
+There may also be a situation where when searching for a configuration via share 2, it will not be found. Therefore, there is a second way to add devices.
+
+First, you need to find the configuration by following the link: https://drive.labhub.eu.org
+
+After downloading the desired image, we need to upload it directly to Netlab. Let's also use Mobaxterm, When connecting to the console, we can see the file view on the left:
+
+![image](https://github.com/AntonAndAnna/Arp-spoofing/assets/103459290/520db192-a217-4ffe-b422-6f4a91d8c21d)
+
+It is necessary to follow the path:
+
+```
+/opt/unetlab/addons/qemu/
+```
+
+And then by clicking anywhere in the window with the right mouse button to open the window:
+
+![image](https://github.com/AntonAndAnna/Arp-spoofing/assets/103459290/a0a60412-5d3a-4f92-93ad-7ac2f5a98980)
+
+Using the "upload to current folder" item, we will upload the necessary configuration
 
 # 🖧 Creating a network lab
 The built virtual laboratory in Netlab will look like this:
