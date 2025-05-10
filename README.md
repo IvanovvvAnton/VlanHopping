@@ -1,4 +1,4 @@
-# 🌐🔄 VlanHopping
+# 🌐 VlanHopping
 
 # 📚 Table of contents
 
