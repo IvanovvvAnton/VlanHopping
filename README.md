@@ -36,7 +36,7 @@
      - [⚙️ Step 3: Choosing an attack on the DTP protocol](#-step-3-choosing-an-attack-on-the-dtp-protocol)  
      - [🏁 Step 4: Launch the attack and verify success](#-step-4-launch-the-attack-and-verify-success)  
 
-9. [🛡️ Protection methods](#-protection-methods)  
+9. [🛡️ Protection methods](#%EF%B8%8-protection-methods)  
 
 10. [📝 Conclusion](#-conclusion)  
 
