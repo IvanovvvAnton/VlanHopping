@@ -22,7 +22,7 @@
 7. [Implementation of the attack](#-implementation-of-the-attack)  
    - [Checking the status of the switch port status](#-checking-the-status-of-the-switch-port-status)  
 8. [Attack](#-attack)  
-   - [Step 1: Install Yersinia](#-step-1-install-yersinia)  
+   - [Step 1: Install Yersinia](#step-1-install-yersinia)  
    - [Step 2: Launch Yersinia in Graphical mode](#-step-2-launch-yersinia-in-graphical-mode)  
    - [Step 3: Choosing an attack on the DTP protocol](#%EF%B8%8F-step-3-choosing-an-attack-on-the-dtp-protocol)  
    - [Step 4: Launch the attack and verify success](#-step-4-launch-the-attack-and-verify-success)  
