@@ -1,45 +1,33 @@
-# 🌐 VlanHopping
-
-# 📚 Table of contents
+# VlanHopping
 
 ## 📋 Table of Contents  
-1. [💡 Introduction](#-introduction)  
-   - [📚 Relevance of the study](#-relevance-of-the-study)  
-   - [🔬 Object and subject of research](#-object-and-subject-of-research)  
-   - [🎯 Purpose and objectives of the work](#-purpose-and-objectives-of-the-work)  
-   - [🧠 Scientific novelty and practical significance](#-scientific-novelty-and-practical-significance)  
-
-2. [🛠️ The structure of the work](#-the-structure-of-the-work)  
-
-3. [🛠️ How to install PnetLab and add the ishare2 function](#-how-to-install-pnetlab-and-add-the-ishare2-function)  
-
-4. [⚙️ Ishare2](#-ishare2)  
-   - [🖥️ MobaXterm](#-mobaxterm)  
-
-5. [🖧 Creating a network lab](#-creating-a-network-lab)  
-
-6. [🔧 Router Setup](#-router-setup)  
-   - [🔄 VLAN Creation](#-vlan-creation)  
-   - [🔢 Assigning IP addresses for VLAN data](#-assigning-ip-addresses-for-vlan-data)  
-   - [📡 Configuring a DHCP server for a VLAN](#-configuring-a-dhcp-server-for-a-vlan)  
-   - [🔐 Configuring NAT to access the external network](#-configuring-nat-to-access-the-external-network)  
-
-7. [🔌 Switch Setup](#-switch-setup)  
-   - [🏷️ Creating a VLAN](#-creating-a-vlan)  
-   - [🔀 Assigning trunk and access ports](#-assigning-trunk-and-access-ports)  
-
-8. [💻 Implementation of the attack](#-implementation-of-the-attack)  
-   - [🔍 Checking the status of the switch port status](#-checking-the-status-of-the-switch-port-status)  
-   - [💥 Attack](#-attack)  
-     - [⚡ Step 1: Install Yersinia](#-step-1-install-yersinia)  
-     - [🔓 Step 2: Launch Yersinia in Graphical mode](#-step-2-launch-yersinia-in-graphical-mode)  
-     - [⚙️ Step 3: Choosing an attack on the DTP protocol](#-step-3-choosing-an-attack-on-the-dtp-protocol)  
-     - [🏁 Step 4: Launch the attack and verify success](#-step-4-launch-the-attack-and-verify-success)  
-
-9. [🛡️ Protection methods](#%EF%B8%8F-protection-methods)  
-
-10. [📝 Conclusion](#-conclusion)  
-
+1. [Introduction](#-introduction)  
+   - [Relevance of the study](#-relevance-of-the-study)  
+   - [Object and subject of research](#-object-and-subject-of-research)  
+   - [Purpose and objectives of the work](#-purpose-and-objectives-of-the-work)  
+   - [Scientific novelty and practical significance](#-scientific-novelty-and-practical-significance)  
+2. [The structure of the work](#%EF%B8%8F-the-structure-of-the-work)
+   - [How to install PnetLab and add the ishare2 function](#%EF%B8%8Fhow-to-install-pnetlab-and-add-the-ishare2-function)  
+3. [Ishare2](#%EF%B8%8F-ishare2)  
+   - [MobaXterm](#%EF%B8%8F-mobaxterm)  
+4. [Creating a network lab](#-creating-a-network-lab)  
+5. [Router Setup](#-router-setup)  
+   - [VLAN Creation](#-vlan-creation)  
+   - [Assigning IP addresses for VLAN data](#-assigning-ip-addresses-for-vlan-data)  
+   - [Configuring a DHCP server for a VLAN](#-configuring-a-dhcp-server-for-a-vlan)  
+   - [Configuring NAT to access the external network](#-configuring-nat-to-access-the-external-network)  
+6. [Switch Setup](#-switch-setup)  
+   - [Creating a VLAN](#%EF%B8%8F-creating-a-vlan)  
+   - [Assigning trunk and access ports](#-assigning-trunk-and-access-ports)  
+7. [Implementation of the attack](#-implementation-of-the-attack)  
+   - [Checking the status of the switch port status](#-checking-the-status-of-the-switch-port-status)  
+8. [Attack](#-attack)  
+   - [Step 1: Install Yersinia](#-step-1-install-yersinia)  
+   - [Step 2: Launch Yersinia in Graphical mode](#-step-2-launch-yersinia-in-graphical-mode)  
+   - [Step 3: Choosing an attack on the DTP protocol](#%EF%B8%8F-step-3-choosing-an-attack-on-the-dtp-protocol)  
+   - [Step 4: Launch the attack and verify success](#-step-4-launch-the-attack-and-verify-success)  
+9. [Protection methods](#%EF%B8%8F-protection-methods)  
+10. [Conclusion](#-conclusion)  
 11. [Authors](#authors) 
 
 ## 💡 Introduction
@@ -431,5 +419,4 @@ Thus, to effectively protect against VLAN hopping cyber attacks and other threat
 # Authors
 If you have any questions, you can ask them to us by writing to us at email:
 - ivanovvvvvvvanton3829@gmail.com
-- annakisel8534@gmail.com
 
